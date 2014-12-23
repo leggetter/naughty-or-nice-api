@@ -1,7 +1,7 @@
 {
-  "name": "tweet-stats-api",
+  "name": "naughty-or-nice-api",
   "version": "0.0.1",
-  "description": "Realtime statistics on Twitter keywords",
+  "description": "Pusher and Twitter API integration example",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,7 +12,7 @@
     "pusher",
     "statistics"
   ],
-  "author": "Robin Hawkes <rob@rawkes.com>",
+  "author": "Phil Leggetter <phil@leggetter.co.uk>",
   "license": "MIT",
   "dependencies": {
     "body-parser": "~1.9.0",

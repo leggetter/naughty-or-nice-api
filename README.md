@@ -19,3 +19,7 @@ Demo: [http://leggetter.github.io/naughty-or-nice/](leggetter.github.io/naughty-
 8. Test the API locally by running `node index.js`
 9. Upload the API somewhere public (this is already set up for [Heroku](http://heroku.com))
 10. [Set up the demo](https://github.com/leggetter/naughty-or-nice)
+
+## Credit
+
+Based on a demo originally created by [Robin Hawkes](https://twitter.com/robhawkes)
