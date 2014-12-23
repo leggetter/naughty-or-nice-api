@@ -2,7 +2,6 @@ var _ = require("underscore");
 var Twit = require("twit");
 
 var express = require("express");
-var bodyParser = require("body-parser");
 var errorHandler = require("errorhandler");
 
 var config;
@@ -21,9 +20,6 @@ try {
     DEBUG: process.env.DEBUG || false
   }
 }
-
-var keywords = config.keywords;
-var keywordStats = {};
 
 function log() {
   if( config.DEBUG ) {
@@ -58,7 +54,7 @@ var app = express();
 
 // Ping
 app.get("/ping", function(req, res) {
-  res.status(200).end();
+  res.sendStatus(200);
 });
 
 // Error handler
