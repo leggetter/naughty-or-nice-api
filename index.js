@@ -140,18 +140,27 @@ var restartStream = function() {
 };
 
 var processTweet = function(tweet) {
-  if( publishFilter( tweet ) ) {
-    log(tweet);
-
-    pusher.trigger( 'tweets', 'new-tweet', tweet );
+  var sendData = publishFilter( tweet );
+  if( sendData !== null ) {
+    pusher.trigger( 'tweets', 'new-tweet', sendData );
   }
 };
 
 var publishFilter = function(tweet) {
-  // Only send tweets to the client that will be used
-  if(!tweet || !tweet.place || !tweet.lang || !tweet.geo) return false;
-  if(tweet.lang !== 'en') return false;
-  return true;
+  // Only send tweets and data to the client that will be used
+  var sendData = null;
+  if(!tweet || !tweet.place || !tweet.lang || !tweet.geo) return sendData;
+  if(tweet.lang !== 'en') return sendData;
+
+  sendData = {};
+  sendData.geo = tweet.geo;
+  sendData.place = tweet.place;
+  sendData.user = tweet.user;
+  sendData.id_str = tweet.id_str;
+  sendData.timestamp_ms = tweet.timestamp_ms;
+  sendData.text = tweet.text;
+
+  return sendData;
 }
 
 // Start stream after short timeout to avoid triggering multi-connection errors
